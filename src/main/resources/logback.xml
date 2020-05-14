@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration debug="true">
-    <property name="appname" value="springboot-seckill"/>
+    <property name="appName" value="springboot-seckill"/>
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
-    <property name="mypattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger %L - %msg%n"/>
+    <property name="myPattern" value="%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight([%thread]-%5p) %boldMagenta(%file:%line) %cyan(%m%n)"/>
     <property name="logger.root" value="logs"/>
-    <contextName>${appname}</contextName>
+    <contextName>${appName}</contextName>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight([%thread]-%5p) %boldMagenta(%file:%line) %cyan(%m%n)</pattern>
@@ -13,14 +13,14 @@
     </appender>
     <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <append>true</append>
-        <file>${logger.root}/${appname}-info.log</file>
+        <file>${logger.root}/${appName}-info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${logger.root}/${appname}-info.%d{yyyyMMdd}_%i.log</fileNamePattern>
+            <fileNamePattern>${logger.root}/${appName}-info.%d{yyyyMMdd}_%i.log</fileNamePattern>
             <maxHistory>100</maxHistory>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>${mypattern}</pattern>
+            <pattern>${myPattern}</pattern>
         </encoder>
     </appender>
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -28,14 +28,14 @@
             <level>WARN</level>
         </filter>
         <append>true</append>
-        <file>${logger.root}/${appname}-error.log</file>
+        <file>${logger.root}/${appName}-error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${logger.root}/${appname}-error.%d{yyyyMMdd}_%i.log</fileNamePattern>
+            <fileNamePattern>${logger.root}/${appName}-error.%d{yyyyMMdd}_%i.log</fileNamePattern>
             <maxHistory>100</maxHistory>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>${mypattern}</pattern>
+            <pattern>${myPattern}</pattern>
         </encoder>
     </appender>
 
